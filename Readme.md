@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Дмитрий Красавин](https://up.htmlacademy.ru/javascript/17/user/76862).
-* Наставник: `Неизвестно`.
+* Наставник: [Виталий Кудла](https://htmlacademy.ru/profile/vkudla).
 
 ---
 
