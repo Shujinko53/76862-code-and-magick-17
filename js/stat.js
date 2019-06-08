@@ -12,12 +12,13 @@ window.renderStatistics = function(ctx) {
 
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!' 130, 30);
-  ctx.fillText('Список результатов:' 130, 50);
+  ctx.fillText('Ура вы победили!', 130, 30);
+  ctx.fillText('Список результатов:', 130, 50);
 
   ctx.fillStyle = rgba(255, 0, 0, 1);
-  ctx.fillText('Вы' 160, 70);
+  ctx.fillText('Вы', 160, 70);
   ctx.fillRext(40, 150, 40, 150);
 };
 
-
+var names = ['Вы'];
+var times = [2725];
