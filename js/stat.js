@@ -2,7 +2,7 @@ var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
-var GAP = 10;
+var GAP = 40;
 var FONT_GAP = 15;
 var TEXT_WIDTH = 50;
 var BAR_HEIGHT = 20;
@@ -37,5 +37,10 @@ window.renderStatistics = function(ctx, players, times) {
     ctx.fillText(players[i], CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
     ctx.fillRect(CLOUD_X + GAP + TEXT_WIDTH, CLOUD_Y + GAP + (GAP + BAR_HEIGHT) * i, (barWidth * times[i]) / maxTime, BAR_HEIGHT);
   }
+
+  ctx.font = '16px PT Mono';
+  ctx.fillText('Ура вы победили!', 150, 20);
+  ctx.fillText('Список результатов:', 150, 40);
+
 };
 
