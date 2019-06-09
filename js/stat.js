@@ -41,5 +41,6 @@ window.renderStatistics = function(ctx, players, times) {
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', CLOUD_X + GAP * 2, FONT_GAP * 2);
   ctx.fillText('Список результатов:', CLOUD_X + GAP * 2, TEXT_WIDTH);
+
 };
 
