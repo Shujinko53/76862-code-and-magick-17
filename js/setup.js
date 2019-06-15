@@ -54,3 +54,34 @@ for (var i = 0; i < wizards.length; i++) {
 similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+// ----------- 4-ый раздел заданий -----------------
+// ---- 1 пункт заданий ----
+var modal = document.querySelector('.setup');
+var modalOpener = document.querySelector('.setup-open');
+var modalCloser = document.querySelector('.setup-close');
+
+modalOpener.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  modal.classList.remove('hidden');
+});
+
+modalCloser.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  modal.classList.add('hidden');
+});
+
+window.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === 13 || evt.keyCode === 32) {
+    modal.classList.remove('hidden');
+  }
+});
+
+window.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 27) {
+    if (!modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+    }
+  }
+});
+
