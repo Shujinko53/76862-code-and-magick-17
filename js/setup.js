@@ -71,7 +71,7 @@ modalCloser.addEventListener('click', function (evt) {
   modal.classList.add('hidden');
 });
 
-window.addEventListener('keydown', function(evt) {
+window.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13 || evt.keyCode === 32) {
     modal.classList.remove('hidden');
   }
