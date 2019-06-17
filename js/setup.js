@@ -56,56 +56,73 @@ similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 // ----------- 4-ый раздел заданий -----------------
-// ---- 1 пункт заданий ----
+// ---- 1-ый пункт заданий ----
 var modal = document.querySelector('.setup');
-var modalOpener = document.querySelector('.setup-open');
-var modalCloser = document.querySelector('.setup-close');
+var modalOpen = document.querySelector('.setup-open');
+var modalClose = document.querySelector('.setup-close');
 var userNameInput = modal.querySelector('.setup-user-name');
 
 // ---- Действия открытия окна ----
 
-modalOpener.addEventListener('click', function (evt) {
-  evt.preventDefault();
+var openPopup = function () {
   modal.classList.remove('hidden');
+};
+
+modalOpen.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  openPopup();
 });
 
-modalOpener.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13 || evt.keyCode === 32) {
-    modal.classList.remove('hidden');
+modalOpen.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 13) {
+    openPopup();
   }
 });
 
 // ---- Действия закрытия окна ----
 
-modalCloser.addEventListener('click', function (evt) {
-  evt.preventDefault();
+var closePopup = function () {
   modal.classList.add('hidden');
+};
+
+modalClose.addEventListener('click', function () {
+  closePopup();
 });
 
-modalCloser.addEventListener('keydown', function (evt) {
+modalClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
-    modal.classList.add('hidden');
+    closePopup();
   }
 });
 
 window.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 27) {
     if (!modal.classList.contains('hidden')) {
-      modal.classList.add('hidden');
+      closePopup();
     }
   }
 });
-
+// ---- 2-ой пункт заданий ----
 // ---- Проверка на валидность введенного имени персонажа ----
 
-userNameInput.addEventListener('invalid', function () {
-  if (userNameInput.validity.tooShort) {
-    userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else if (userNameInput.validity.tooLong) {
-    userNameInput.setCustomValidity('Имя не должно превышать 25-ти символов');
-  } else if (userNameInput.validity.valueMissing) {
-    userNameInput.setCustomValidity('Обязательное поле');
+userNameInput.addEventListener('input', function (evt) {
+  var target = evt.target;
+  if (target.value.length < 2) {
+    target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else if (target.value.length > 25) {
+    target.setCustomValidity('Имя не должно превышать 25-ти символов');
   } else {
-    userNameInput.setCustomValidity('');
+    target.setCustomValidity('');
   }
+});
+
+// ---- 3-ий пункт заданий ----
+
+var wizardEyes = document.querySelector('.wizard-eyes');
+wizardEyes.addEventListener('click', function () {
+
+  for (var j = 0; j < WIZARD_EYES.length; j++) {
+    wizardEyes = WIZARD_EYES[j];
+  }
+
 });
