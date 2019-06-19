@@ -3,15 +3,14 @@
 var WIZARD_NAMES = ['Дамблдор', 'Волдеморт', 'Доктор Стрендж', 'Гарри Поттер'];
 var WIZARD_COAT = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
+var FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
-
 var similarListElement = userDialog.querySelector('.setup-similar-list');
-
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 
+userDialog.classList.remove('hidden');
 
 var wizards = [
   {
@@ -117,12 +116,29 @@ userNameInput.addEventListener('input', function (evt) {
 });
 
 // ---- 3-ий пункт заданий ----
+var wizard = document.querySelector('.wizard');
+var wizardCoat = wizard.querySelector('.wizard-coat');
+var wizardEyes = wizard.querySelector('.wizard-eyes');
 
-var wizardEyes = document.querySelector('.wizard-eyes');
-wizardEyes.addEventListener('click', function () {
-
-  for (var j = 0; j < WIZARD_EYES.length; j++) {
-    wizardEyes = WIZARD_EYES[j];
-  }
+wizardCoat.addEventListener('click', function () {
+  wizardCoat.style.fill = renderColor(WIZARD_COAT);
 
 });
+
+wizardEyes.addEventListener('click', function () {
+  wizardEyes.style.fill = renderColor(WIZARD_EYES);
+});
+
+var renderColor = function (array) {
+  var colors = getRandomNumber(array);
+  for (var i = 0; i < array.length; i++) {
+    colors = array[i];
+  }
+  return colors;
+};
+
+var getRandomNumber = function(coordinate) {
+  var num = Math.floor(coordinate[0] + Math.random() * (coordinate[1] + 1 - coordinate[0]));
+
+  return num;
+};
