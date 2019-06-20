@@ -3,7 +3,7 @@
 var WIZARD_NAMES = ['Дамблдор', 'Волдеморт', 'Доктор Стрендж', 'Гарри Поттер'];
 var WIZARD_COAT = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
-var FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var WIZARD_FIRE = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var userDialog = document.querySelector('.setup');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -119,25 +119,21 @@ userNameInput.addEventListener('input', function (evt) {
 var wizard = document.querySelector('.wizard');
 var wizardCoat = wizard.querySelector('.wizard-coat');
 var wizardEyes = wizard.querySelector('.wizard-eyes');
+var wizardFire = document.querySelector('.setup-fireball-wrap');
 
 wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = renderColor(WIZARD_COAT);
-
+  wizardCoat.style.fill = WIZARD_COAT[getRandomNumber([0, WIZARD_COAT.length - 1])];
 });
 
 wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = renderColor(WIZARD_EYES);
+  wizardEyes.style.fill = WIZARD_EYES[getRandomNumber([0, WIZARD_EYES.length - 1])];
 });
 
-var renderColor = function (array) {
-  var colors = getRandomNumber(array);
-  for (var i = 0; i < array.length; i++) {
-    colors = array[i];
-  }
-  return colors;
-};
+wizardFire.addEventListener('click', function () {
+  wizardFire.style.fill = WIZARD_FIRE[getRandomNumber([0, WIZARD_FIRE.length - 1])];
+});
 
-var getRandomNumber = function(coordinate) {
+var getRandomNumber = function (coordinate) {
   var num = Math.floor(coordinate[0] + Math.random() * (coordinate[1] + 1 - coordinate[0]));
 
   return num;
