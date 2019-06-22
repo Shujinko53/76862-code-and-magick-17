@@ -119,22 +119,16 @@ userNameInput.addEventListener('input', function (evt) {
 var wizard = document.querySelector('.wizard');
 var wizardCoat = wizard.querySelector('.wizard-coat');
 var wizardEyes = wizard.querySelector('.wizard-eyes');
-var wizardFire = document.querySelector('.setup-fireball-wrap');
+var fireball = userDialog.querySelector('.setup-fireball-wrap');
 
 wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = WIZARD_COAT[getRandomNumber([0, WIZARD_COAT.length - 1])];
+  wizardCoat.style.fill = WIZARD_COAT[Math.floor(WIZARD_COAT.length * Math.random())];
 });
 
 wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = WIZARD_EYES[getRandomNumber([0, WIZARD_EYES.length - 1])];
+  wizardEyes.style.fill = WIZARD_EYES[Math.floor(WIZARD_EYES.length * Math.random())];
 });
 
-wizardFire.addEventListener('click', function () {
-  wizardFire.style.fill = WIZARD_FIRE[getRandomNumber([0, WIZARD_FIRE.length - 1])];
+fireball.addEventListener('click', function () {
+  fireball.style.backgroundColor = WIZARD_FIRE[Math.floor(WIZARD_FIRE.length * Math.random())];
 });
-
-var getRandomNumber = function (coordinate) {
-  var num = Math.floor(coordinate[0] + Math.random() * (coordinate[1] + 1 - coordinate[0]));
-
-  return num;
-};
