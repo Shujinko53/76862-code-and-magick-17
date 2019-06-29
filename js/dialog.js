@@ -1,9 +1,14 @@
 'use strict';
+
 (function () {
   var setup = document.querySelector('.setup');
   var dialogHandle = setup.querySelector('.upload');
   var modalOpen = document.querySelector('.setup-open');
   var modalClose = document.querySelector('.setup-close');
+
+  window.set = {
+    setup: setup
+  };
 
   dialogHandle.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
