@@ -1,4 +1,17 @@
 'use strict';
+(function () {
+  var setup = document.querySelector('.setup');
+  var dialogHandle = setup.querySelector('.upload');
+  var modalOpen = document.querySelector('.setup-open');
+  var modalClose = document.querySelector('.setup-close');
+
+  dialogHandle.addEventListener('mousedown', function (evt) {
+    evt.preventDefault();
+
+    var startCoords = {
+      x: evt.clientX,
+      y: evt.clientY
+    };
 
 (function () {
   var setup = document.querySelector('.setup');
@@ -103,5 +116,4 @@
       }
     }
   });
-
 })();
