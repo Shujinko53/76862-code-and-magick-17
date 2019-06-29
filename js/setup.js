@@ -4,6 +4,8 @@ var WIZARD_NAMES = ['Дамблдор', 'Волдеморт', 'Доктор Ст
 var WIZARD_COAT = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_FIRE = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var modal = document.querySelector('.setup');
+var userNameInput = modal.querySelector('.setup-user-name');
 var userDialog = document.querySelector('.setup');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -54,55 +56,9 @@ similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
-// ----------- 4-ый раздел заданий -----------------
-// ---- 1-ый пункт заданий ----
-var modal = document.querySelector('.setup');
-var modalOpen = document.querySelector('.setup-open');
-var modalClose = document.querySelector('.setup-close');
-var userNameInput = modal.querySelector('.setup-user-name');
 
-// ---- Действия открытия окна ----
+/* Проверка на валидность введенного имени персонажа -- */
 
-var openPopup = function () {
-  modal.classList.remove('hidden');
-};
-
-modalOpen.addEventListener('click', function (evt) {
-  evt.preventDefault();
-  openPopup();
-});
-
-modalOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13) {
-    openPopup();
-  }
-});
-
-// ---- Действия закрытия окна ----
-
-var closePopup = function () {
-  modal.classList.add('hidden');
-};
-
-modalClose.addEventListener('click', function () {
-  closePopup();
-});
-
-modalClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13) {
-    closePopup();
-  }
-});
-
-window.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 27) {
-    if (!modal.classList.contains('hidden')) {
-      closePopup();
-    }
-  }
-});
-// ---- 2-ой пункт заданий ----
-// ---- Проверка на валидность введенного имени персонажа ----
 
 userNameInput.addEventListener('input', function (evt) {
   var target = evt.target;
@@ -115,7 +71,7 @@ userNameInput.addEventListener('input', function (evt) {
   }
 });
 
-// ---- 3-ий пункт заданий ----
+// ---- Смена одежды при клике ----
 var wizard = document.querySelector('.wizard');
 var wizardCoat = wizard.querySelector('.wizard-coat');
 var wizardEyes = wizard.querySelector('.wizard-eyes');
