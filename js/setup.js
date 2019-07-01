@@ -73,7 +73,9 @@
 
   });
 
+
   // ---- Смена одежды при клике ----
+
   var wizard = document.querySelector('.wizard');
   var wizardCoat = wizard.querySelector('.wizard-coat');
   var wizardEyes = wizard.querySelector('.wizard-eyes');
