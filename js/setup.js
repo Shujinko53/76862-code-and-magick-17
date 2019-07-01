@@ -62,6 +62,7 @@
 
   userNameInput.addEventListener('input', function (evt) {
     var target = evt.target;
+
     if (target.value.length < 2) {
       target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
     } else if (target.value.length > 25) {
@@ -69,6 +70,7 @@
     } else {
       target.setCustomValidity('');
     }
+
   });
 
   // ---- Смена одежды при клике ----
