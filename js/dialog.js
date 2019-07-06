@@ -86,8 +86,7 @@
     setup.classList.add('hidden');
   };
 
-  modalClose.addEventListener('click', function (evt) {
-    evt.preventDefault();
+  modalClose.addEventListener('click', function () {
     closePopup();
   });
 
@@ -104,4 +103,5 @@
       }
     }
   });
+
 })();
